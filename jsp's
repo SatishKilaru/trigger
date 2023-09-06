@@ -1,0 +1,154 @@
+// CustomerForm.jsp
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Information</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Customer Information</h2>
+        <form>
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Enter First Name">
+                <label for="lastName">Last Name:</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
+            </div>
+            
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" class="form-control" id="dob">
+            </div>
+            <div class="form-group">
+                <label for="panNo">PAN No:</label>
+                <input type="text" class="form-control" id="panNo" placeholder="Enter PAN No">
+            </div>
+            <div class="form-group">
+                <label for="mobileNo">Mobile No:</label>
+                <input type="text" class="form-control" id="mobileNo" placeholder="Enter Mobile No">
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea class="form-control" id="address" rows="3" placeholder="Enter Address"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="guardianName">Guardian Name:</label>
+                <input type="text" class="form-control" id="guardianName" placeholder="Enter Guardian Name">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery (if needed) here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+//LoanApplicantion.jsp
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Application</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="display-4">Loan Application Form</h1>
+        <form action="process_loan_application.jsp" method="post">
+        
+        	<%-- Java code to get the current date --%>
+            <%
+                java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd");
+                java.util.Date currentDate = new java.util.Date();
+                String formattedDate = dateFormat.format(currentDate);
+            %>
+
+            <div class="form-group">
+                <label for="applicationDate">Application Date:</label>
+                <input type="text" class="form-control" name="applicationDate" id="applicationDate" value="<%= formattedDate %>" readonly>
+            </div>
+            
+            <div class="form-group">
+            
+                <label for="loanType">Loan Type:</label>
+                <select class="form-control" name="loanType" id="loanType">
+                    <option value="personal">Personal Loan</option>
+                    <option value="home">Home Loan</option>
+                    <option value="auto">Vehicle Loan</option>
+                    <!-- Add more loan types as needed -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="amountRequired">Amount Required:</label>
+                <input type="text" class="form-control" name="amountRequired" id="amountRequired" required>
+            </div>
+
+            <div class="form-group">
+                <label for="numMonths">Number of Months:</label>
+                <input type="text" class="form-control" name="numMonths" id="numMonths" required>
+            </div>
+
+            
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery (if needed) here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+//Nominee.jsp
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Nominee Information</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="display-4">Nominee Information</h1>
+        <form action="process_nominee.jsp" method="post">
+            <div class="form-group">
+                <label for="nomineeName">Nominee Name:</label>
+                <input type="text" class="form-control" name="nomineeName" id="nomineeName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nomineeRelation">Nominee Relation:</label>
+                <input type="text" class="form-control" name="nomineeRelation" id="nomineeRelation" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery (if needed) here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
